@@ -1,7 +1,5 @@
 package com.EvantageSoft.Loan.Origination.Management.System.model;
 
-import com.EvantageSoft.Loan.Origination.Management.System.DTO.LoanProductDTO;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.cglib.core.Local;
@@ -19,7 +17,11 @@ public class Loan {
     private Long id;
 
     @ManyToOne
-    @JsonBackReference
+    @JoinColumn(name = "borrower_id")
+    private Borrower borrower;
+
+    @ManyToOne
+    @JoinColumn(name = "loan_product_id")
     private LoanProduct loanProduct;
 
     private BigDecimal principal_amount;

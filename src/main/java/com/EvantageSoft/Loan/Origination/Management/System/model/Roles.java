@@ -17,7 +17,7 @@ public class Roles {
     private long id;
 
     @OneToMany(mappedBy = "roles")
-    @JsonManagedReference
+    @JsonManagedReference(value = "role-user-role")
     private List<UserRoles> userRoles;
 
     @Column(name = "role_name", unique = true, nullable = false)

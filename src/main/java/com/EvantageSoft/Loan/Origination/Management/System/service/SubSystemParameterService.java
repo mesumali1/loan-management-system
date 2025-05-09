@@ -42,9 +42,7 @@ public class SubSystemParameterService {
 
     public SubSystemParameters update(Long id, SubSystemParameterDTO dto){
         SubSystemParameters existing = getById(id);
-        SystemParameters systemParameters = existing.getSystemParameters();
 
-        existing.setSystemParameters(systemParameters);
         existing.setKey(dto.getKey());
         existing.setValue(dto.getValue());
 

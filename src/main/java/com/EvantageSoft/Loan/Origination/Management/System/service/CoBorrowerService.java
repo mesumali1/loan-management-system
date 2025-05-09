@@ -50,9 +50,7 @@ public class CoBorrowerService {
 
     public CoBorrower update(Long id, CoBorrowerDTO dto){
         CoBorrower existing = getById(id);
-        Borrower borrower = existing.getBorrower();
 
-        existing.setBorrower(borrower);
         existing.setCo_borrower_type(dto.getCo_borrower_type());
         existing.setFirst_name(dto.getFirst_name());
         existing.setLast_name(dto.getLast_name());
