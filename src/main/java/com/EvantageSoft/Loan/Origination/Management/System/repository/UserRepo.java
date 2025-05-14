@@ -4,4 +4,6 @@ import com.EvantageSoft.Loan.Origination.Management.System.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<Users, Long> {
+
+    Users findByUsername(String name);
 }
