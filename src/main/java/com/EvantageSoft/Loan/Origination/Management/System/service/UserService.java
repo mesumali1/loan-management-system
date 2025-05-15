@@ -26,7 +26,7 @@ public class UserService {
         return userRepo.findById(id) .orElseThrow(() -> new RuntimeException("User Not Found"));
     }
 
-    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
     public Users createUser(Users users){
 
@@ -37,7 +37,7 @@ public class UserService {
     public Users updateUser(Long id, Users upadtedUser){
         Users user = userRepo.findById(id).get();
         user.setName(upadtedUser.getName());
-        user.setPassword(upadtedUser.getPassword());
+        user.setPassword(encoder.encode(upadtedUser.getPassword()));
         user.setEmail(upadtedUser.getEmail());
         user.setStatus(upadtedUser.getStatus());
         return userRepo.save(user);
